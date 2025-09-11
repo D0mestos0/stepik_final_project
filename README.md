@@ -16,7 +16,7 @@
 - **README.md**- описание проекта
 
 ## Ключевые файлы
-1. pages/base_page.py - базовый класс BasePage, от которого наследуются все страницы.
+**1.** pages/base_page.py - базовый класс BasePage, от которого наследуются все страницы.
 Содержит общий функционал:
 
 - **__init__(browser, url, timeout)** - конструктор;
@@ -25,11 +25,11 @@
 
 - **is_element_present()** - проверка элемента с обработкой исключений.
 
-2. pages/locators.py - здесь храняты локаторы, сгруппированные по классам: MainPageLocators, LoginPageLocators
+**2.** pages/locators.py - здесь храняты локаторы, сгруппированные по классам: MainPageLocators, LoginPageLocators
 
 Плюс в том, что селекторы в одном месте, поэтому при изменении правлю только здесь.
 
-3. pages/main_page.py
+**3.** pages/main_page.py
 
 Включает класс MainPage(BasePage), то есть методы главной страницы:
 
@@ -37,7 +37,7 @@
 
 - **should_be_login_link()** - проверка наличия ссылки входа.
 
-4. pages/login_page.py
+**4.** pages/login_page.py
 
 Включает класс LoginPage(BasePage), где проверяется страница логина:
 
@@ -49,4 +49,4 @@
 
 - **should_be_login_page()** - включает все три проверки.
 
-5. test_main_page.py - содержит сами тесты.
+**5.** test_main_page.py - содержит сами тесты.
