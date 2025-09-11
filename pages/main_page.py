@@ -10,4 +10,4 @@ class MainPage(BasePage):
         link.click()
 
     def should_be_login_link(self):
-        assert self.is_element_present(By.CSS_SELECTOR, "#login_link"), "Login link is not presented"
+        assert self.is_element_present(By.CSS_SELECTOR, "#login_link"), "Login link is not presented" 
