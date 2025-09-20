@@ -1,0 +1,52 @@
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+from .locators import ProductPageLocators
+from .base_page import BasePage
+
+class ProductPage(BasePage):
+    
+    def add_product_to_basket(self):
+        print("Ищу кнопку 'Добавить в корзину'")
+        add_basket_button = self.browser.find_element(*ProductPageLocators.ADD_BASKET)
+        print("Нашла кнопку, кликаю")
+        add_basket_button.click()
+        print("Кликнула, решаю алерт")
+        self.solve_quiz_and_get_code()
+
+    def should_be_add_to_basket_button(self):
+        assert self.is_element_present(*ProductPageLocators.ADD_BASKET), "The button 'Add to basket' is not presented"
+
+    # def should_be_add_to_basket_item(self):
+        # товар ДОБАВЛЕН в корзину
+       # add_item = WebDriverWait(self.browser, 10).until(EC.presence_of_element_located((ProductPageLocators.ITEM_IN_BASKET)))            # жду появления сообщения, что товар добавлен
+        # add_item_text = add_item.text
+        #assert "был добавлен в вашу корзину." in add_item_text, "The item was not added"
+
+    # def should_be_add_exact_item(self):
+        # конкретный ТОВАР добавлен в корзину
+        #name_of_item = WebDriverWait(self.browser, 10).until(EC.presence_of_element_located((ProductPageLocators.NAME_ITEM)))             # жду название в сообщении
+       # message_item = self.browser.find_element(*ProductPageLocators.ITEM_IN_BASKET).text                                  
+       # assert name_of_item in message_item,  "The names was not matched"
+
+        #def should_be_correct_price(self):
+        #pass
+        # стоимость товара совпадает со стоимостью корзины
+
+
+
+        # либо просто через текст
+        # add_basket_button = self.browser.find_element(*ProductPageLocators.ADD_BASKET)
+        # button_text = add_basket_button.text
+        # assert "Добавить в корзину" in button_text, "The button was not found or has wrong text"
+
+        # напоминание для меня: лучше найти кнопку еще раз, потому что каждый метод самодостаточен
+    
+        
+
+
+
+    
+
+
+
