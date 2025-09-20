@@ -37,7 +37,6 @@ class ProductPage(BasePage):
         basket_price = WebDriverWait(self.browser, 10).until(EC.presence_of_element_located(ProductPageLocators.PRICE_IN_BASKET)).text
         print(f"Цена товара: {item_price}")
         print(f"Цена в уведомлении: {basket_price}")
-        # Обычно строки совпадают, но на всякий случай сравним через «in»
         assert item_price in basket_price, f"Цена не совпала! Ожидали {item_price}, в корзине {basket_price}"
 
 
