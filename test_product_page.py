@@ -6,7 +6,7 @@ def test_guest_can_add_product_to_basket(browser):
     page = ProductPage(browser, link) 
     page.open() 
     page.should_be_add_to_basket_button()    # проверяю, что кнопка есть
-    page.add_product_to_basket()             # кликаю + решаем алерт
+    page.add_product_to_basket()             # кликаю + решаю алерт
             
    # page.should_be_add_to_basket_item()      # проверяю, что товар ВООБЩЕ добавлен в корзину
    # page.should_be_add_exact_item()          # проверяю, что КОНКРЕТНЫЙ товар добавился в корзину
