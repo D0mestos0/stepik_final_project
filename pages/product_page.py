@@ -17,17 +17,22 @@ class ProductPage(BasePage):
     def should_be_add_to_basket_button(self):
         assert self.is_element_present(*ProductPageLocators.ADD_BASKET), "The button 'Add to basket' is not presented"
 
-    # def should_be_add_to_basket_item(self):
+    def should_be_add_to_basket_item(self):
         # товар ДОБАВЛЕН в корзину
-       # add_item = WebDriverWait(self.browser, 10).until(EC.presence_of_element_located((ProductPageLocators.ITEM_IN_BASKET)))            # жду появления сообщения, что товар добавлен
-        # add_item_text = add_item.text
-        #assert "был добавлен в вашу корзину." in add_item_text, "The item was not added"
+        add_item = WebDriverWait(self.browser, 10).until(EC.presence_of_element_located((ProductPageLocators.ITEM_IN_BASKET)))            # жду появления сообщения, что товар добавлен
+        add_item_text = add_item.text
+        print(f"Текст уведомления: {add_item_text}")
+        assert "был добавлен в вашу корзину" in add_item_text, "The item was not added"
+        print("Метод should_be_add_to_basket_item выполнен!")
 
-    # def should_be_add_exact_item(self):
+    def should_be_add_exact_item(self):
         # конкретный ТОВАР добавлен в корзину
-        #name_of_item = WebDriverWait(self.browser, 10).until(EC.presence_of_element_located((ProductPageLocators.NAME_ITEM)))             # жду название в сообщении
-       # message_item = self.browser.find_element(*ProductPageLocators.ITEM_IN_BASKET).text                                  
-       # assert name_of_item in message_item,  "The names was not matched"
+        name_of_item = WebDriverWait(self.browser, 10).until(EC.presence_of_element_located((ProductPageLocators.NAME_ITEM))).text             # жду название в сообщении
+        message_item = self.browser.find_element(*ProductPageLocators.ITEM_IN_BASKET).text                                  
+        assert name_of_item in message_item,  "The names was not matched"
+
+    
+
 
         #def should_be_correct_price(self):
         #pass
