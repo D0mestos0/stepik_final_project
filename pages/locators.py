@@ -12,3 +12,5 @@ class ProductPageLocators():
     ADD_BASKET = (By.CSS_SELECTOR, ".btn-add-to-basket")
     NAME_ITEM = (By.CSS_SELECTOR, ".product_main h1")
     ITEM_IN_BASKET = (By.XPATH, "//div[@id='messages']//div[contains(@class,'alert-success')]//div[contains(@class,'alertinner')][contains(., 'был добавлен в вашу корзину')]")
+    PRICE_IN_BASKET = (By.CSS_SELECTOR, "#messages .alert-info .alertinner p:first-child strong")
+    PRICE_ITEM = (By.CSS_SELECTOR, ".product_main .price_color")

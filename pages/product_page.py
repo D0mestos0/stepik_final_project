@@ -30,20 +30,23 @@ class ProductPage(BasePage):
         name_of_item = WebDriverWait(self.browser, 10).until(EC.presence_of_element_located((ProductPageLocators.NAME_ITEM))).text             # жду название в сообщении
         message_item = self.browser.find_element(*ProductPageLocators.ITEM_IN_BASKET).text                                  
         assert name_of_item in message_item,  "The names was not matched"
-
-    
-
-
-        #def should_be_correct_price(self):
-        #pass
+        
+    def should_be_correct_price(self):
         # стоимость товара совпадает со стоимостью корзины
+        item_price = WebDriverWait(self.browser, 10).until(EC.presence_of_element_located(ProductPageLocators.PRICE_ITEM)).text
+        basket_price = WebDriverWait(self.browser, 10).until(EC.presence_of_element_located(ProductPageLocators.PRICE_IN_BASKET)).text
+        print(f"Цена товара: {item_price}")
+        print(f"Цена в уведомлении: {basket_price}")
+        # Обычно строки совпадают, но на всякий случай сравним через «in»
+        assert item_price in basket_price, f"Цена не совпала! Ожидали {item_price}, в корзине {basket_price}"
 
 
 
-        # либо просто через текст
-        # add_basket_button = self.browser.find_element(*ProductPageLocators.ADD_BASKET)
-        # button_text = add_basket_button.text
-        # assert "Добавить в корзину" in button_text, "The button was not found or has wrong text"
+
+
+
+
+
 
         # напоминание для меня: лучше найти кнопку еще раз, потому что каждый метод самодостаточен
     

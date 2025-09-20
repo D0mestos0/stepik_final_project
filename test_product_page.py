@@ -8,7 +8,8 @@ def test_guest_can_add_product_to_basket(browser):
     page.should_be_add_to_basket_button()    
     page.add_product_to_basket()             
     page.should_be_add_to_basket_item()      
-    page.should_be_add_exact_item() 
+    page.should_be_add_exact_item()
+    page.should_be_correct_price()
     print("==> Тест полностью дошел до конца <==")         
 
 
