@@ -15,9 +15,6 @@ class ProductPage(BasePage):
             print("Есть promo, решаю алерт")
             self.solve_quiz_and_get_code()
 
-       #print("Кликнула, решаю алерт")
-       #self.solve_quiz_and_get_code()
-
     def should_be_add_to_basket_button(self):
         assert self.is_element_present(*ProductPageLocators.ADD_BASKET), "The button 'Add to basket' is not presented"
 
@@ -44,12 +41,10 @@ class ProductPage(BasePage):
         assert item_price in basket_price, f"Цена не совпала! Ожидали {item_price}, в корзине {basket_price}"
 
     def should_not_be_success_message(self):
-        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
-            "Success message is presented, but should not be"
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), "Success message is presented, but should not be"
 
     def message_should_be_disappeared(self):
-        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE,  timeout=6), \
-            "Success message did not disappear, but it should"
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE,  timeout=6), "Success message did not disappear, but it should"
 
 
 
