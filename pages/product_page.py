@@ -11,8 +11,12 @@ class ProductPage(BasePage):
         add_basket_button = self.browser.find_element(*ProductPageLocators.ADD_BASKET)
         print("Нашла кнопку, кликаю")
         add_basket_button.click()
-        print("Кликнула, решаю алерт")
-        self.solve_quiz_and_get_code()
+        if "promo=" in self.browser.current_url:
+            print("Есть promo, решаю алерт")
+            self.solve_quiz_and_get_code()
+
+       #print("Кликнула, решаю алерт")
+       #self.solve_quiz_and_get_code()
 
     def should_be_add_to_basket_button(self):
         assert self.is_element_present(*ProductPageLocators.ADD_BASKET), "The button 'Add to basket' is not presented"
@@ -39,6 +43,13 @@ class ProductPage(BasePage):
         print(f"Цена в уведомлении: {basket_price}")
         assert item_price in basket_price, f"Цена не совпала! Ожидали {item_price}, в корзине {basket_price}"
 
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message is presented, but should not be"
+
+    def message_should_be_disappeared(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE,  timeout=6), \
+            "Success message did not disappear, but it should"
 
 
 
@@ -46,8 +57,6 @@ class ProductPage(BasePage):
 
 
 
-
-        # напоминание для меня: лучше найти кнопку еще раз, потому что каждый метод самодостаточен
     
         
 
