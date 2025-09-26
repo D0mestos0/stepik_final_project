@@ -75,7 +75,7 @@ def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
     basket_page.should_not_be_products_in_basket()
     basket_page.should_be_empty_basket_message()
 
-# новый класс для зарегестрированного пользователя
+# новый класс для зарегистрированного пользователя
 @pytest.mark.user_basket
 class TestUserAddToBasketFromProductPage:
     @pytest.mark.need_review
